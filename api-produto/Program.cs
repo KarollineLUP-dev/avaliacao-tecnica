@@ -3,7 +3,6 @@ using ApiProduto.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configurar banco de dados
 builder.Services.AddDbContext<ProdutoDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 

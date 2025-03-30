@@ -19,7 +19,7 @@ namespace ApiProduto.Data
                 new Produto { Id = 2, Nome = "Mouse Logitech", Estoque = 51, Valor = 150.00M },
                 new Produto { Id = 3, Nome = "Teclado Logitech", Estoque = 19, Valor = 380.00M },
                 new Produto { Id = 4, Nome = "Monitor AOC", Estoque = 15, Valor = 560.00M },
-                new Produto { Id = 5, Nome = "Impressora", Estoque = 3, Valor = 890.00M }
+                new Produto { Id = 5, Nome = "Impressora Canon", Estoque = 3, Valor = 890.00M }
             );
 
             base.OnModelCreating(modelBuilder);

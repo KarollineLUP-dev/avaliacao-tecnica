@@ -45,17 +45,17 @@ public class ProdutoController : ControllerBase
         return Ok(produtos.ToList());
     }
 
-    [HttpGet("consultar/{id}")]
-    public IActionResult GetById(int id)
-    {
-        var produto = _context.Produtos.Find(id);
-        return produto == null ? NotFound() : Ok(produto);
-    }
-
     [HttpGet("consultar")]
     public IActionResult GetByName([FromQuery] string name)
     {
         var produto = _context.Produtos.FirstOrDefault(p => p.Nome == name);
+        return produto == null ? NotFound() : Ok(produto);
+    }
+
+    [HttpGet("consultar/{id}")]
+    public IActionResult GetById(int id)
+    {
+        var produto = _context.Produtos.Find(id);
         return produto == null ? NotFound() : Ok(produto);
     }
 
@@ -78,7 +78,8 @@ public class ProdutoController : ControllerBase
         existingProduct.Estoque = produto.Estoque;
         existingProduct.Valor = produto.Valor;
         _context.SaveChanges();
-        return NoContent();
+
+        return GetById(id);
     }
 
     [HttpDelete("{id}")]
