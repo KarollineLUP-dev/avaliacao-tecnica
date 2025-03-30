@@ -8,6 +8,7 @@ using ApiProduto.Data;
 using System.Threading.Tasks;
 using ApiProduto.Controllers;
 using ApiProduto.Models;
+using ApiProduto.Dtos;
 
 namespace ApiProduto.Tests.Controllers;
 
@@ -91,6 +92,16 @@ public class ProdutoControllerTests
     }
 
     [Fact]
+    public void GetAllLikeName_ProdutoNaoExiste_RetornaNotFound()
+    {
+        string produtoNome = "Webcam";
+
+        var result = _controller.GetAllLikeName(produtoNome);
+
+        Assert.IsType<NotFoundObjectResult>(result);
+    }
+   
+    [Fact]
     public void GetAllLikeName_NomeVazio_RetornaTodosProdutos()
     {
         string? produtoNome = null;
@@ -101,16 +112,6 @@ public class ProdutoControllerTests
         var produtos = Assert.IsType<List<Produto>>(okResult.Value);
 
         Assert.NotEmpty(produtos);
-    }
-
-    [Fact]
-    public void GetAllLikeName_ProdutoNaoExiste_RetornaNotFound()
-    {
-        string produtoNome = "Webcam";
-
-        var result = _controller.GetAllLikeName(produtoNome);
-
-        Assert.IsType<NotFoundObjectResult>(result);
     }
 
     [Fact]
@@ -160,8 +161,9 @@ public class ProdutoControllerTests
     [Fact]
     public void Post_ProdutoValido_RetornaCreated()
     {
-        var produto = new Produto { Nome = "Teclado Multilaser", Estoque = 10, Valor = 200.00M };
-        var result = Assert.IsType<CreatedAtActionResult>(_controller.Post(produto));
+        var produtoDto = new ProdutoDto { Nome = "Teclado Multilaser", Estoque = 10, Valor = 200.00M };
+
+        var result = Assert.IsType<CreatedAtActionResult>(_controller.Post(produtoDto));
 
         Assert.Equal(nameof(_controller.GetById), result.ActionName);
 
@@ -170,10 +172,11 @@ public class ProdutoControllerTests
     }
 
     [Fact]
-    public void Post_ProdutoComValorNegativo_RetornaBadRequest()
+    public void Post_ValorNegativo_RetornaBadRequest()
     {
-        var produto = new Produto { Nome = "Webcam Logitech", Estoque = 10, Valor = -10.00M };
-        var result = Assert.IsType<BadRequestObjectResult>(_controller.Post(produto));
+        var produtoDto = new ProdutoDto { Nome = "Webcam Logitech", Estoque = 10, Valor = -10.00M };
+
+        var result = Assert.IsType<BadRequestObjectResult>(_controller.Post(produtoDto));
 
         Assert.Equal("O valor do produto não pode ser negativo.", result.Value);
     }
@@ -182,9 +185,9 @@ public class ProdutoControllerTests
     public void Put_ProdutoValido_RetornaProdutoAtualizado()
     {
         int produtoId = 1;
-        var produto = new Produto { Nome = "Teclado Multilaser", Estoque = 10, Valor = 200.00M };
+        var produtoDto = new ProdutoDto { Nome = "Teclado Multilaser", Estoque = 10, Valor = 200.00M };
 
-        var result = _controller.Put(produtoId, produto);
+        var result = _controller.Put(produtoId, produtoDto);
 
         var okResult = Assert.IsType<OkObjectResult>(result);
         var updatedProduto = Assert.IsType<Produto>(okResult.Value);
@@ -195,12 +198,12 @@ public class ProdutoControllerTests
     }
 
     [Fact]
-    public void Put_ProdutoComValorNegativo_RetornaBadRequest()
+    public void Put_ValorNegativo_RetornaBadRequest()
     {
         int produtoId = 2;
-        var produto = new Produto { Nome = "Mouse Multilaser", Estoque = 10, Valor = -10.00M };
+        var produtoDto = new ProdutoDto { Nome = "Mouse Multilaser", Estoque = 10, Valor = -10.00M };
 
-        var result = Assert.IsType<BadRequestObjectResult>(_controller.Put(produtoId, produto));
+        var result = Assert.IsType<BadRequestObjectResult>(_controller.Put(produtoId, produtoDto));
 
         Assert.Equal("O valor do produto não pode ser negativo.", result.Value);
     }
@@ -209,9 +212,9 @@ public class ProdutoControllerTests
     public void Put_IdNaoExiste_RetornaNotFound()
     {
         int produtoId = 99;
-        var produto = new Produto { Nome = "Teclado Multilaser", Estoque = 10, Valor = 200.00M };
+        var produtoDto = new ProdutoDto { Nome = "Teclado Multilaser", Estoque = 10, Valor = 200.00M };
 
-        var result = _controller.Put(produtoId, produto);
+        var result = _controller.Put(produtoId, produtoDto);
 
         Assert.IsType<NotFoundResult>(result);
     }

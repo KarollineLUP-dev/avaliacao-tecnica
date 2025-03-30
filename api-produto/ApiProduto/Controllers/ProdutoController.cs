@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ApiProduto.Data;
 using ApiProduto.Models;
+using ApiProduto.Dtos;
 
 namespace ApiProduto.Controllers;
 [Route("api/produtos")]
@@ -83,24 +84,37 @@ public class ProdutoController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Post([FromBody] Produto produto)
+    public IActionResult Post([FromBody] ProdutoDto produtoDto)
     {
-        if (produto.Valor < 0) return BadRequest("O valor do produto não pode ser negativo.");
+        if (produtoDto.Valor < 0) return BadRequest("O valor do produto não pode ser negativo.");
+
+        var produto = new Produto
+        {
+            Nome = produtoDto.Nome,
+            Estoque = produtoDto.Estoque,
+            Valor = produtoDto.Valor
+        };
+
         _context.Produtos.Add(produto);
         _context.SaveChanges();
+
         return CreatedAtAction(nameof(GetById), new { id = produto.Id }, produto);
     }
 
     [HttpPut("{id}")]
-    public IActionResult Put(int id, [FromBody] Produto produto)
+    public IActionResult Put(int id, [FromBody] ProdutoDto produtoDto)
     {
-        var existingProduct = _context.Produtos.Find(id);
-        if (existingProduct == null) return NotFound();
-        if (produto.Valor < 0) return BadRequest("O valor do produto não pode ser negativo.");
+        if (produtoDto.Valor < 0)
+            return BadRequest("O valor do produto não pode ser negativo.");
 
-        existingProduct.Nome = produto.Nome;
-        existingProduct.Estoque = produto.Estoque;
-        existingProduct.Valor = produto.Valor;
+        var produto = _context.Produtos.Find(id);
+        if (produto == null)
+            return NotFound();
+
+        produto.Nome = produtoDto.Nome;
+        produto.Estoque = produtoDto.Estoque;
+        produto.Valor = produtoDto.Valor;
+        
         _context.SaveChanges();
 
         return GetById(id);

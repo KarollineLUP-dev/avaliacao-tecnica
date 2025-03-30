@@ -7,7 +7,7 @@ namespace ApiProduto.Data
     {
         public ProdutoDbContext(DbContextOptions<ProdutoDbContext> options) : base(options) { }
 
-        public DbSet<Produto> Produtos { get; set; }
+        public virtual DbSet<Produto> Produtos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiProduto.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9216e65e2028a42cc6b7527d7ff1be73bbd71b7a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56003ed13a60da94300221f0213edebfbfaad59f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiProduto.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiProduto.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

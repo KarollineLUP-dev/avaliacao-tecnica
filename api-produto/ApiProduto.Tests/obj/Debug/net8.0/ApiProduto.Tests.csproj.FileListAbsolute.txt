@@ -168,3 +168,9 @@ C:\code\avaliacao-tecnica\api-produto\ApiProduto.Tests\obj\Debug\net8.0\refint\A
 C:\code\avaliacao-tecnica\api-produto\ApiProduto.Tests\obj\Debug\net8.0\ApiProduto.Tests.pdb
 C:\code\avaliacao-tecnica\api-produto\ApiProduto.Tests\obj\Debug\net8.0\ApiProduto.Tests.genruntimeconfig.cache
 C:\code\avaliacao-tecnica\api-produto\ApiProduto.Tests\obj\Debug\net8.0\ref\ApiProduto.Tests.dll
+C:\code\avaliacao-tecnica\api-produto\ApiProduto.Tests\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\code\avaliacao-tecnica\api-produto\ApiProduto.Tests\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\code\avaliacao-tecnica\api-produto\ApiProduto.Tests\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+C:\code\avaliacao-tecnica\api-produto\ApiProduto.Tests\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\code\avaliacao-tecnica\api-produto\ApiProduto.Tests\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\code\avaliacao-tecnica\api-produto\ApiProduto.Tests\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
