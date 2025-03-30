@@ -1,0 +1,15 @@
+C:\code\avaliacao-tecnica\quebra-cabeca\bin\Debug\net6.0\quebra-cabeca.exe
+C:\code\avaliacao-tecnica\quebra-cabeca\bin\Debug\net6.0\quebra-cabeca.deps.json
+C:\code\avaliacao-tecnica\quebra-cabeca\bin\Debug\net6.0\quebra-cabeca.runtimeconfig.json
+C:\code\avaliacao-tecnica\quebra-cabeca\bin\Debug\net6.0\quebra-cabeca.dll
+C:\code\avaliacao-tecnica\quebra-cabeca\bin\Debug\net6.0\quebra-cabeca.pdb
+C:\code\avaliacao-tecnica\quebra-cabeca\obj\Debug\net6.0\quebra-cabeca.csproj.AssemblyReference.cache
+C:\code\avaliacao-tecnica\quebra-cabeca\obj\Debug\net6.0\quebra-cabeca.GeneratedMSBuildEditorConfig.editorconfig
+C:\code\avaliacao-tecnica\quebra-cabeca\obj\Debug\net6.0\quebra-cabeca.AssemblyInfoInputs.cache
+C:\code\avaliacao-tecnica\quebra-cabeca\obj\Debug\net6.0\quebra-cabeca.AssemblyInfo.cs
+C:\code\avaliacao-tecnica\quebra-cabeca\obj\Debug\net6.0\quebra-cabeca.csproj.CoreCompileInputs.cache
+C:\code\avaliacao-tecnica\quebra-cabeca\obj\Debug\net6.0\quebra-cabeca.dll
+C:\code\avaliacao-tecnica\quebra-cabeca\obj\Debug\net6.0\refint\quebra-cabeca.dll
+C:\code\avaliacao-tecnica\quebra-cabeca\obj\Debug\net6.0\quebra-cabeca.pdb
+C:\code\avaliacao-tecnica\quebra-cabeca\obj\Debug\net6.0\quebra-cabeca.genruntimeconfig.cache
+C:\code\avaliacao-tecnica\quebra-cabeca\obj\Debug\net6.0\ref\quebra-cabeca.dll
