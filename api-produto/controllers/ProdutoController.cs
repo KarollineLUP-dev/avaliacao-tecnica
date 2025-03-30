@@ -16,13 +16,46 @@ public class ProdutoController : ControllerBase
         _context = context;
     }
 
-    [HttpGet]
-    public IActionResult Get() => Ok(_context.Produtos.ToList());
+    [HttpGet("listar/")]
+    public IActionResult GetProdutosLikeName([FromQuery] string? name = null)
+    {
+        IQueryable<Produto> produtos = _context.Produtos;
 
-    [HttpGet("{id}")]
+        if (!string.IsNullOrWhiteSpace(name))
+        {
+            produtos = produtos.Where(p => p.Nome.Contains(name));
+        }
+
+        return Ok(produtos.ToList());
+    }
+
+    [HttpGet("ordenar/")]
+    public IActionResult GetProdutosOrderBy([FromQuery] string orderBy = null)
+    {
+        IQueryable<Produto> produtos = _context.Produtos;
+
+        produtos = orderBy.ToLower() switch
+        {
+            "nome" => produtos.OrderBy(p => p.Nome),
+            "estoque" => produtos.OrderBy(p => p.Estoque),
+            "valor" => produtos.OrderBy(p => p.Valor),
+            _ => produtos.OrderBy(p => p.Id)
+        };
+
+        return Ok(produtos.ToList());
+    }
+
+    [HttpGet("consultar/{id}")]
     public IActionResult GetById(int id)
     {
         var produto = _context.Produtos.Find(id);
+        return produto == null ? NotFound() : Ok(produto);
+    }
+
+    [HttpGet("consultar")]
+    public IActionResult GetByName([FromQuery] string name)
+    {
+        var produto = _context.Produtos.FirstOrDefault(p => p.Nome == name);
         return produto == null ? NotFound() : Ok(produto);
     }
 
