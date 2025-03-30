@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "uPZ+jOUm8TjkSxs8hZVcd9uMSMB+Iw+0z7ji17t+SaOJelkETHoX+rzV4z9py/t5C26UvevzEsmmRLohT+siQw==",
+  "dgSpecHash": "ND63z9Y7q9I=",
   "success": true,
   "projectFilePath": "C:\\code\\avaliacao-tecnica\\quebra-cabeca\\quebra-cabeca.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\karol\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\karol\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\karol\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\karol\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.36\\microsoft.netcore.app.host.win-x64.6.0.36.nupkg.sha512"
+  ],
   "logs": []
 }
