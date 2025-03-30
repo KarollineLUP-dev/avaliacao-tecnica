@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiProduto.Data;
+
 [Route("api/produtos")]
 [ApiController]
 public class ProdutoController : ControllerBase

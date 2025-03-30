@@ -168,3 +168,6 @@ C:\code\avaliacao-tecnica\api-produto\obj\Debug\net8.0\refint\api-produto.dll
 C:\code\avaliacao-tecnica\api-produto\obj\Debug\net8.0\api-produto.pdb
 C:\code\avaliacao-tecnica\api-produto\obj\Debug\net8.0\api-produto.genruntimeconfig.cache
 C:\code\avaliacao-tecnica\api-produto\obj\Debug\net8.0\ref\api-produto.dll
+C:\code\avaliacao-tecnica\api-produto\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\code\avaliacao-tecnica\api-produto\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\code\avaliacao-tecnica\api-produto\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
