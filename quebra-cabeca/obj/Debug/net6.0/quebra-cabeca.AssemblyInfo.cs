@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("quebra-cabeca")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f44c084da19b04783f615d25d1d6e24d339f5f6a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0b4b861e8270b65df9ee49c5a2c0fef5d4671fc")]
 [assembly: System.Reflection.AssemblyProductAttribute("quebra-cabeca")]
 [assembly: System.Reflection.AssemblyTitleAttribute("quebra-cabeca")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
