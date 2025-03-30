@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ApiProduto.Data;
 using ApiProduto.Models;
 
+namespace ApiProduto.Controllers;
 [Route("api/produtos")]
 [ApiController]
 public class ProdutoController : ControllerBase
@@ -18,31 +19,52 @@ public class ProdutoController : ControllerBase
     }
 
     [HttpGet("listar/")]
-    public IActionResult GetProdutosLikeName([FromQuery] string? name = null)
+    public IActionResult GetAllLikeName([FromQuery] string? name = null)
     {
         IQueryable<Produto> produtos = _context.Produtos;
 
         if (!string.IsNullOrWhiteSpace(name))
         {
             produtos = produtos.Where(p => p.Nome.Contains(name));
+            if (!produtos.Any())
+            {
+                return NotFound($"Nenhum produto encontrado com o nome '{name}'.");
+            }
         }
 
         return Ok(produtos.ToList());
     }
 
     [HttpGet("ordenar/")]
-    public IActionResult GetProdutosOrderBy([FromQuery] string orderBy)
+    public IActionResult GetAllOrderBy([FromQuery] string? orderBy)
     {
+        if (string.IsNullOrEmpty(orderBy))
+            return BadRequest("O parâmetro de ordenação não pode ser nulo ou vazio.");
+
+        orderBy = orderBy.ToLower();
+
+        var colunasExistentes = new HashSet<string> { "nome", "estoque", "valor", "id" };
+
+        if (!colunasExistentes.Contains(orderBy))
+            return NotFound($"A coluna '{orderBy}' não existe para ordenação.");
+
         IQueryable<Produto> produtos = _context.Produtos;
 
-        produtos = orderBy.ToLower() switch
+        try
         {
-            "nome" => produtos.OrderBy(p => p.Nome),
-            "estoque" => produtos.OrderBy(p => p.Estoque),
-            "valor" => produtos.OrderBy(p => p.Valor),
-            _ => produtos.OrderBy(p => p.Id)
-        };
-
+            produtos = orderBy switch
+            {
+                "nome" => produtos.OrderBy(p => p.Nome),
+                "estoque" => produtos.OrderBy(p => p.Estoque),
+                "valor" => produtos.OrderBy(p => p.Valor),
+                "id" => produtos.OrderBy(p => p.Id),
+                _ => throw new ArgumentException($"A coluna '{orderBy}' não existe para ordenação.")
+            };
+        }
+        catch (ArgumentException ex)
+        {
+            return NotFound(ex.Message);
+        }
         return Ok(produtos.ToList());
     }
 
@@ -74,6 +96,7 @@ public class ProdutoController : ControllerBase
     {
         var existingProduct = _context.Produtos.Find(id);
         if (existingProduct == null) return NotFound();
+        if (produto.Valor < 0) return BadRequest("O valor do produto não pode ser negativo.");
 
         existingProduct.Nome = produto.Nome;
         existingProduct.Estoque = produto.Estoque;
